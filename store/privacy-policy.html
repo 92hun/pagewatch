@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageWatch - Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background: #f8f9fb;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .updated { font-size: 13px; color: #888; margin-bottom: 32px; }
+    h2 { font-size: 20px; margin: 28px 0 12px; color: #1a1a2e; }
+    p, li { font-size: 15px; margin-bottom: 12px; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    a { color: #667eea; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>PageWatch Privacy Policy</h1>
+      <p class="updated">Last updated: March 2026</p>
+
+      <h2>Overview</h2>
+      <p>PageWatch is a Chrome extension that monitors web pages for changes. We are committed to protecting your privacy. This policy explains what data we collect and how we handle it.</p>
+
+      <h2>Data Collection</h2>
+      <p><strong>We do not collect any personal data.</strong> PageWatch operates entirely within your browser.</p>
+      <ul>
+        <li><strong>No accounts required</strong> — you don't need to sign up or log in.</li>
+        <li><strong>No analytics or tracking</strong> — we don't use Google Analytics, Mixpanel, or any tracking service.</li>
+        <li><strong>No external servers</strong> — all data is stored locally in your browser using Chrome's storage API.</li>
+        <li><strong>No data transmission</strong> — your monitored URLs, snapshots, and change history never leave your device.</li>
+      </ul>
+
+      <h2>Data Stored Locally</h2>
+      <p>PageWatch stores the following data in your browser's local storage (chrome.storage.local):</p>
+      <ul>
+        <li>URLs you choose to monitor</li>
+        <li>Page content snapshots (text only, for comparison)</li>
+        <li>Change history and diff records</li>
+        <li>Your settings (check interval, notification preferences)</li>
+        <li>Webhook URLs you configure (Discord, Slack, Telegram)</li>
+      </ul>
+      <p>This data is stored only on your device and is never sent to our servers.</p>
+
+      <h2>Network Requests</h2>
+      <p>PageWatch makes HTTP requests to:</p>
+      <ul>
+        <li><strong>URLs you explicitly add for monitoring</strong> — to check for content changes.</li>
+        <li><strong>Webhook URLs you configure</strong> — to send change notifications to Discord, Slack, Telegram, or custom endpoints.</li>
+      </ul>
+      <p>No other network requests are made. We do not phone home, check for updates, or communicate with any third-party service.</p>
+
+      <h2>Permissions</h2>
+      <p>PageWatch requests the following Chrome permissions:</p>
+      <ul>
+        <li><strong>storage</strong> — to save your monitors, settings, and change history locally.</li>
+        <li><strong>alarms</strong> — to schedule periodic page checks.</li>
+        <li><strong>notifications</strong> — to show desktop alerts when changes are detected.</li>
+        <li><strong>activeTab</strong> — to read the current tab's URL when you click "Monitor Current Tab".</li>
+        <li><strong>scripting</strong> — to inject the element selector when you pick a specific page area to monitor.</li>
+        <li><strong>host_permissions (all URLs)</strong> — to fetch any webpage you choose to monitor.</li>
+      </ul>
+
+      <h2>Third-Party Services</h2>
+      <p>If you configure webhook notifications, PageWatch will send change alerts to the webhook URLs you provide (e.g., Discord, Slack, Telegram). These services have their own privacy policies. PageWatch only sends the monitor name, URL, and a brief change summary to these webhooks.</p>
+
+      <h2>Data Deletion</h2>
+      <p>You can delete all data at any time through the Settings page ("Clear All Data"). Uninstalling the extension also removes all stored data.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>PageWatch does not knowingly collect any information from children under 13.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time. Changes will be reflected with an updated "Last updated" date above.</p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, please contact us at: <a href="mailto:pagewatch@example.com">pagewatch@example.com</a></p>
+    </div>
+  </div>
+</body>
+</html>

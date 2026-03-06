@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f2ff"/>
+      <stop offset="100%" style="stop-color:#e8e0f0"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="800" fill="url(#bg)"/>
+
+  <!-- Popup mockup -->
+  <g transform="translate(440, 60)">
+    <!-- Shadow -->
+    <rect x="4" y="4" width="400" height="620" rx="12" fill="rgba(0,0,0,0.1)"/>
+    <!-- Popup body -->
+    <rect width="400" height="620" rx="12" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- Header -->
+    <rect width="400" height="52" rx="12" fill="url(#header)"/>
+    <rect y="40" width="400" height="12" fill="url(#header)"/>
+    <text x="20" y="34" font-family="sans-serif" font-size="18" font-weight="700" fill="white">PageWatch</text>
+    <rect x="320" y="16" width="40" height="20" rx="10" fill="#ffd700"/>
+    <text x="340" y="30" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#333">PRO</text>
+
+    <!-- Add section -->
+    <rect x="16" y="64" width="368" height="38" rx="8" fill="url(#header)"/>
+    <text x="200" y="88" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="600" fill="white">+ Monitor Current Tab</text>
+
+    <!-- Presets -->
+    <text x="16" y="126" font-family="sans-serif" font-size="11" font-weight="600" fill="#888">QUICK SETUP</text>
+    <g transform="translate(16, 136)">
+      <rect width="112" height="56" rx="8" fill="white" stroke="#e8eaed" stroke-width="1"/>
+      <text x="56" y="24" text-anchor="middle" font-size="18">&#x1F4B0;</text>
+      <text x="56" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#333">Price Drop</text>
+
+      <rect x="122" width="112" height="56" rx="8" fill="white" stroke="#e8eaed" stroke-width="1"/>
+      <text x="178" y="24" text-anchor="middle" font-size="18">&#x1F4E6;</text>
+      <text x="178" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#333">Restock</text>
+
+      <rect x="244" width="112" height="56" rx="8" fill="white" stroke="#e8eaed" stroke-width="1"/>
+      <text x="300" y="24" text-anchor="middle" font-size="18">&#x1F50D;</text>
+      <text x="300" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#333">Keyword</text>
+    </g>
+
+    <!-- Monitor item 1 - changed -->
+    <rect x="0" y="206" width="400" height="76" fill="#f0f2ff"/>
+    <rect x="0" y="206" width="3" height="76" fill="#667eea"/>
+    <circle cx="24" cy="244" r="5" fill="#667eea"/>
+    <text x="42" y="232" font-family="sans-serif" font-size="14" font-weight="600" fill="#1a1a2e">Amazon - MacBook Pro</text>
+    <text x="42" y="248" font-family="sans-serif" font-size="11" fill="#888">amazon.com/dp/B0CM5JV268</text>
+    <text x="42" y="264" font-family="sans-serif" font-size="10" fill="#aaa">Changed! · .price-block · 5m · 2m ago</text>
+    <text x="42" y="278" font-family="sans-serif" font-size="10" font-weight="600" fill="#667eea">Price drops below $1500</text>
+
+    <!-- Monitor item 2 - active -->
+    <rect x="0" y="282" width="400" height="76" fill="white"/>
+    <circle cx="24" cy="320" r="5" fill="#51cf66"/>
+    <text x="42" y="308" font-family="sans-serif" font-size="14" font-weight="600" fill="#1a1a2e">GitHub Jobs - Backend</text>
+    <text x="42" y="324" font-family="sans-serif" font-size="11" fill="#888">github.com/careers?q=backend</text>
+    <text x="42" y="340" font-family="sans-serif" font-size="10" fill="#aaa">Active · Full page · 30m · 15m ago</text>
+    <text x="42" y="354" font-family="sans-serif" font-size="10" font-weight="600" fill="#667eea">Any change</text>
+
+    <!-- Monitor item 3 - active -->
+    <rect x="0" y="358" width="400" height="76" fill="white"/>
+    <circle cx="24" cy="396" r="5" fill="#51cf66"/>
+    <text x="42" y="384" font-family="sans-serif" font-size="14" font-weight="600" fill="#1a1a2e">Nike Air Force 1 Restock</text>
+    <text x="42" y="400" font-family="sans-serif" font-size="11" fill="#888">nike.com/t/air-force-1-07</text>
+    <text x="42" y="416" font-family="sans-serif" font-size="10" fill="#aaa">Active · .buy-btn · 5m · 1m ago</text>
+    <text x="42" y="430" font-family="sans-serif" font-size="10" font-weight="600" fill="#667eea">Keyword appears: "add to cart"</text>
+
+    <!-- Diff panel -->
+    <rect x="0" y="440" width="400" height="140" fill="white" stroke="#e8eaed" stroke-width="0 0 0 1"/>
+    <text x="16" y="464" font-family="sans-serif" font-size="13" font-weight="600" fill="#333">Recent Changes (3)</text>
+    <text x="16" y="484" font-family="sans-serif" font-size="10" fill="#888">3/6/2026, 2:30:15 PM</text>
+    <text x="16" y="498" font-family="sans-serif" font-size="10" fill="#22863a">+1 added</text>
+    <text x="80" y="498" font-family="sans-serif" font-size="10" fill="#cb2431">-1 removed</text>
+    <rect x="16" y="506" width="368" height="24" rx="4" fill="#ffeef0"/>
+    <text x="24" y="522" font-family="monospace" font-size="11" fill="#cb2431">- $1,899.00</text>
+    <rect x="16" y="534" width="368" height="24" rx="4" fill="#e6ffed"/>
+    <text x="24" y="550" font-family="monospace" font-size="11" fill="#22863a">+ $1,449.00</text>
+  </g>
+
+  <!-- Left side text -->
+  <g transform="translate(60, 200)">
+    <text font-family="sans-serif" font-size="42" font-weight="700" fill="#1a1a2e">Monitor any</text>
+    <text y="52" font-family="sans-serif" font-size="42" font-weight="700" fill="#1a1a2e">webpage for</text>
+    <text y="104" font-family="sans-serif" font-size="42" font-weight="700" fill="#667eea">changes.</text>
+    <text y="160" font-family="sans-serif" font-size="18" fill="#666">Price drops, restocks, keywords,</text>
+    <text y="185" font-family="sans-serif" font-size="18" fill="#666">new posts — get notified instantly.</text>
+    <rect y="220" width="180" height="44" rx="22" fill="url(#header)"/>
+    <text x="90" y="248" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="600" fill="white">Add to Chrome</text>
+  </g>
+</svg>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageWatch Settings</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f6f8;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    header img { width: 40px; height: 40px; border-radius: 8px; }
+
+    header h1 {
+      font-size: 24px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header span {
+      font-size: 13px;
+      color: #888;
+      margin-left: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h2 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .setting-row:last-child { border-bottom: none; }
+
+    .setting-label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .setting-desc {
+      font-size: 12px;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    select, input[type="number"] {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    select:focus, input[type="number"]:focus {
+      border-color: #667eea;
+    }
+
+    input[type="number"] { width: 80px; text-align: center; }
+
+    /* Toggle */
+    .toggle {
+      position: relative;
+      width: 44px;
+      height: 24px;
+    }
+
+    .toggle input { opacity: 0; width: 0; height: 0; }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #ccc;
+      border-radius: 24px;
+      transition: 0.2s;
+    }
+
+    .toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+      left: 2px; bottom: 2px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+
+    .toggle input:checked + .toggle-slider { background: #667eea; }
+    .toggle input:checked + .toggle-slider::before { transform: translateX(20px); }
+
+    /* Pro card */
+    .pro-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .pro-card h2 { color: white; }
+
+    .pro-features {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    .pro-features li {
+      padding: 6px 0;
+      font-size: 13px;
+    }
+
+    .pro-features li::before {
+      content: '✓ ';
+      font-weight: bold;
+      margin-right: 4px;
+    }
+
+    .pro-price {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 12px 0;
+    }
+
+    .pro-price span { font-size: 14px; font-weight: 400; opacity: 0.8; }
+
+    .btn {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-white {
+      background: white;
+      color: #667eea;
+    }
+
+    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+    .btn-danger {
+      background: #ff4757;
+      color: white;
+      margin-top: 8px;
+    }
+
+    .btn-danger:hover { background: #e84150; }
+
+    .btn-secondary {
+      background: #e8eaed;
+      color: #333;
+    }
+
+    /* Webhook items */
+    .webhook-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .webhook-item:last-child { border-bottom: none; }
+
+    .webhook-type-badge {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .webhook-type-badge.discord { background: #5865F2; color: white; }
+    .webhook-type-badge.slack { background: #4A154B; color: white; }
+    .webhook-type-badge.telegram { background: #0088cc; color: white; }
+    .webhook-type-badge.custom { background: #333; color: white; }
+
+    .webhook-info { flex: 1; min-width: 0; }
+    .webhook-name { font-size: 14px; font-weight: 500; }
+    .webhook-url-preview { font-size: 11px; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .webhook-actions { display: flex; gap: 8px; align-items: center; }
+
+    .btn-icon {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 4px;
+      color: #888;
+      border-radius: 4px;
+    }
+
+    .btn-icon:hover { background: #f0f0f0; color: #333; }
+    .btn-icon.danger:hover { background: #ffe0e3; color: #ff4757; }
+
+    .saved-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .saved-toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="../icons/icon-128.png" alt="PageWatch" />
+      <h1>PageWatch Settings</h1>
+      <span>v1.0.0</span>
+    </header>
+
+    <!-- General Settings -->
+    <div class="card">
+      <h2>General</h2>
+
+      <div class="setting-row">
+        <div>
+          <div class="setting-label">Default Check Interval</div>
+          <div class="setting-desc">How often to check for changes (minutes)</div>
+        </div>
+        <input type="number" id="interval" min="1" max="1440" value="30" />
+      </div>
+
+      <div class="setting-row">
+        <div>
+          <div class="setting-label">Desktop Notifications</div>
+          <div class="setting-desc">Show notifications when changes are detected</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="notifications" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Webhooks -->
+    <div class="card">
+      <h2>Webhook Notifications</h2>
+      <p style="font-size:12px; color:#888; margin-bottom:12px;">
+        Get change alerts on Discord, Slack, Telegram, or any custom endpoint.
+      </p>
+
+      <div id="webhook-list"></div>
+
+      <div style="margin-top:12px;">
+        <div class="setting-row" style="border-bottom:none; flex-wrap:wrap; gap:8px;">
+          <select id="webhook-type" style="padding:8px 12px; border:1px solid #ddd; border-radius:6px; font-size:13px;">
+            <option value="discord">Discord</option>
+            <option value="slack">Slack</option>
+            <option value="telegram">Telegram</option>
+            <option value="custom">Custom URL</option>
+          </select>
+          <input id="webhook-name" type="text" placeholder="Name (e.g. My Server)" style="flex:1; padding:8px 12px; border:1px solid #ddd; border-radius:6px; font-size:13px; min-width:120px;" />
+        </div>
+        <div class="setting-row" style="border-bottom:none; gap:8px;">
+          <input id="webhook-url" type="url" placeholder="Webhook URL..." style="flex:1; padding:8px 12px; border:1px solid #ddd; border-radius:6px; font-size:13px;" />
+          <button class="btn btn-secondary" id="btn-add-webhook">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data -->
+    <div class="card">
+      <h2>Data</h2>
+
+      <div class="setting-row">
+        <div>
+          <div class="setting-label">Export History</div>
+          <div class="setting-desc">Download change history as CSV</div>
+        </div>
+        <button class="btn btn-secondary" id="btn-export">Export CSV</button>
+      </div>
+
+      <div class="setting-row">
+        <div>
+          <div class="setting-label">Clear All Data</div>
+          <div class="setting-desc">Remove all monitors, history, and settings</div>
+        </div>
+        <button class="btn btn-danger" id="btn-clear">Clear Data</button>
+      </div>
+    </div>
+
+    <!-- Pro Upgrade -->
+    <div class="card pro-card" id="pro-card">
+      <h2>Upgrade to PageWatch Pro</h2>
+      <ul class="pro-features">
+        <li>Unlimited monitors (free: 3)</li>
+        <li>Check every 1 minute (free: 30 min)</li>
+        <li>Full change history (free: 5 recent)</li>
+        <li>CSV export</li>
+        <li>Priority support</li>
+      </ul>
+      <div class="pro-price">$4.99 <span>/ month</span></div>
+      <button class="btn btn-white" id="btn-pro">Upgrade Now</button>
+    </div>
+  </div>
+
+  <div class="saved-toast" id="toast">Settings saved</div>
+
+  <script type="module" src="./options.ts"></script>
+</body>
+</html>

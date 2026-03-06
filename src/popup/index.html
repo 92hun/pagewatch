@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageWatch</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <img src="../icons/icon-48.png" alt="PageWatch" class="logo" />
+        <h1>PageWatch</h1>
+      </div>
+      <div class="header-right">
+        <span id="tier-badge" class="badge badge-free">Free</span>
+        <button id="btn-settings" class="icon-btn" title="Settings">⚙</button>
+      </div>
+    </header>
+
+    <!-- Add Monitor -->
+    <section class="add-section">
+      <button id="btn-add-current" class="btn btn-primary full-width">
+        + Monitor Current Tab
+      </button>
+      <div class="url-input-row">
+        <input
+          id="input-url"
+          type="url"
+          placeholder="Or enter URL..."
+          class="input"
+        />
+        <button id="btn-add-url" class="btn btn-secondary">Add</button>
+      </div>
+    </section>
+
+    <!-- Preset Templates -->
+    <section class="preset-section hidden" id="preset-section">
+      <div class="preset-header">Quick Setup</div>
+      <div class="preset-grid" id="preset-grid"></div>
+    </section>
+
+    <!-- Monitor List -->
+    <section class="monitor-list" id="monitor-list">
+      <div class="empty-state" id="empty-state">
+        <p>No monitors yet.</p>
+        <p class="muted">Add a page to start watching for changes.</p>
+      </div>
+    </section>
+
+    <!-- Limit Warning -->
+    <div id="limit-warning" class="limit-warning hidden">
+      <p>Free plan: <span id="monitor-count">0</span>/3 monitors</p>
+      <button id="btn-upgrade" class="btn btn-accent btn-sm">Upgrade to Pro</button>
+    </div>
+  </div>
+
+  <script type="module" src="./App.ts"></script>
+</body>
+</html>

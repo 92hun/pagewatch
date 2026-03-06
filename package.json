@@ -1,0 +1,16 @@
+{
+  "name": "pagewatch",
+  "version": "1.0.0",
+  "description": "Monitor web pages for changes and get notified instantly",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "typescript": "^5.7.0",
+    "vite": "^6.1.0"
+  }
+}
